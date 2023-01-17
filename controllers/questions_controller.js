@@ -1,6 +1,7 @@
 const Question = require("../models/question");
 const Option = require("../models/option");
 
+//function to create a question
 module.exports.create = function (req, res) {
   console.log(req);
   Question.create(
@@ -25,6 +26,7 @@ module.exports.create = function (req, res) {
   );
 };
 
+//function to create an option
 module.exports.createOption = async function (req, res) {
   let question = await Question.findById(req.params.id);
 
@@ -57,6 +59,7 @@ module.exports.createOption = async function (req, res) {
   );
 };
 
+//function to view question details with given id
 module.exports.viewQuestion = function (req, res) {
   Question.findById(req.params.id)
     .populate("options")
@@ -73,6 +76,8 @@ module.exports.viewQuestion = function (req, res) {
     });
 };
 
+//function to delete a question and produce
+//error if any of its option has votes
 module.exports.deleteQuestion = async function (req, res) {
   let question = await Question.findById(req.params.id).populate("options");
 

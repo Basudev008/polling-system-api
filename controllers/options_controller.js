@@ -1,6 +1,7 @@
 const Option = require("../models/option");
 const Question = require("../models/question");
 
+//function to add vote to an option
 module.exports.addVote = async function (req, res) {
   let option = await Option.findById(req.params.id);
 
@@ -12,6 +13,7 @@ module.exports.addVote = async function (req, res) {
   });
 };
 
+//function to delete an option and also delete option from options array of question
 module.exports.deleteOption = async function (req, res) {
   let option = await Option.findById(req.params.id);
 
