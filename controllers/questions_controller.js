@@ -36,7 +36,7 @@ module.exports.createOption = async function (req, res) {
   Option.findByIdAndUpdate(
     option.id,
     {
-      link_to_vote: `http://localhost:10000/options/${option.id}/add_vote`,
+      link_to_vote: `https://polling-system.onrender.com/options/${option.id}/add_vote`,
     },
     function (err, option) {
       if (err) {
